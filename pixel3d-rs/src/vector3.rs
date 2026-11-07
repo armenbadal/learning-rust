@@ -35,11 +35,17 @@ impl Vector3 {
 
     pub fn normalized(self) -> Option<Self> {
         let len = self.length();
-        if len == 0.0 {
+        if len.abs() < 1e-6 {
             return None
         }
 
         Some(Self::new(self.x/len, self.y/len, self.z/len))
+    }
+}
+
+impl Default for Vector3 {
+    fn default() -> Self {
+        Self::ZERO
     }
 }
 

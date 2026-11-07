@@ -21,6 +21,12 @@ impl Vector4 {
     }
 }
 
+impl Default for Vector4 {
+    fn default() -> Self {
+        Self::ZERO
+    }
+}
+
 impl Sub for Vector4 {
     type Output = Self;
 

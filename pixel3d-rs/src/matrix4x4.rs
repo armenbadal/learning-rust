@@ -1,7 +1,7 @@
-use std::ops::{Index, Mul};
+use std::ops::{Index, IndexMut, Mul};
 use crate::vector4::Vector4;
 
-#[derive(Debug,Copy,Clone)]
+#[derive(Debug,Copy,Clone,PartialEq)]
 pub struct Matrix4x4 {
     data: [[f32; 4]; 4]
 }
@@ -22,10 +22,6 @@ impl Matrix4x4 {
             [0.0, 0.0, 1.0, 0.0],
             [0.0, 0.0, 0.0, 1.0],
         ])
-    }
-
-    pub fn get(&self, row: usize, column: usize) -> f32 {
-        self.data[row][column]
     }
 
     pub fn set(&mut self, row: usize, column: usize, value: f32) {
@@ -56,11 +52,23 @@ impl Matrix4x4 {
     }
 }
 
+impl Default for Matrix4x4 {
+    fn default() -> Self {
+        Self::identity()
+    }
+}
+
 impl Index<usize> for Matrix4x4 {
     type Output = [f32; 4];
 
     fn index(&self, row: usize) -> &Self::Output {
         &self.data[row]
+    }
+}
+
+impl IndexMut<usize> for Matrix4x4 {
+    fn index_mut(&mut self, row: usize) -> &mut Self::Output {
+        &mut self.data[row]
     }
 }
 
@@ -85,17 +93,9 @@ mod test {
     use crate::matrix4x4::Matrix4x4;
 
     #[test]
-    fn create_matrix() {
-        let m0 = Matrix4x4::zero();
-
-        println!("{:?}", m0)
-    }
-
-    #[test]
     fn multiply_matrices() {
         let m0 = Matrix4x4::identity();
         let m1 = Matrix4x4::zero();
-        let m2 = m0 * m1;
-        println!("{:?}", m2);
+        assert_eq!(m0 * m1, Matrix4x4::zero());
     }
 }
