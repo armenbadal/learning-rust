@@ -58,7 +58,7 @@ impl PortablePixmap for Canvas {
         for row in 0..self.height {
             for column in 0..self.width {
                 match self.get_pixel(column as i32, row as i32) {
-                    Some(pixel) => writeln!(writer, "{} ", pixel)?,
+                    Some(pixel) => write!(writer, "{} ", pixel)?,
                     None => continue,
                 }
             }
