@@ -26,7 +26,12 @@ mod colour;
 mod rasterization;
 mod framebuffer;
 mod pipeline;
+mod fragment;
+mod mesh;
 mod screenpoint;
+
+// TODO 7: Demo՝ մեկ կետի փոխարեն նկարել եռանկյուն/մոդել
+// Երեք գագաթ -> projection -> viewport -> `ScreenTriangle` -> rasterize։
 
 fn demo_first() {
     const WIDTH: usize = 10;
