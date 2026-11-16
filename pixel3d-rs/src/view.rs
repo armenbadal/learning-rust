@@ -1,6 +1,9 @@
 use crate::matrix4x4::Matrix4x4;
 use crate::vector3::Vector3;
 
+// TODO 1.2: Թեստերով ամրագրել look_at-ի պայմանավորվածությունները։
+// eye-ը դառնում է (0, 0, 0), իսկ target-ը՝ բացասական z ունեցող կետ։
+// Ստուգել նաև տեղափոխված կամերան, eye == target և հայացքին համագիծ up դեպքերը։
 pub fn look_at(eye: Vector3, target: Vector3, up: Vector3) -> Result<Matrix4x4,String> {
     let backward = (eye - target).normalized()
                            .ok_or("Կամերայի դիրքը և նպատակակետը նույնն են".to_string())?;

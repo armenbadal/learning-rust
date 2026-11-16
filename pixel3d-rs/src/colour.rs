@@ -9,6 +9,9 @@ pub struct Colour {
 }
 
 impl Colour {
+    // TODO 7.2: Ավելացնել գունային ալիքների հասանելիություն և f32 ներկայացում։
+    // Ինտերպոլացնել float-երով, ապա վերջնական գույնը սահմանափակել ու կլորացնել u8-ի։
+    // Ստուգել ալիքների սահմանները և հայտնի կշիռներով գույների խառնուրդը։
     pub const BLACK: Self = Self{red:0,green:0,blue:0,alpha:255};
 
     pub const fn new(red:u8, green:u8, blue:u8) -> Self{

@@ -89,6 +89,10 @@ impl Mul<Vector4> for Matrix4x4 {
 }
 
 #[cfg(test)]
+// TODO 1.1: Ավելացնել ոչ տրիվիալ matrix * matrix և matrix * vector թեստեր։
+// Ամրագրել՝ սյունակային վեկտորներ, clip = P * V * M * position։
+// Ստուգել նաև transform/model մոդուլները՝ T * R * S-ը կիրառում է S, ապա R, ապա T,
+// իսկ rotation-ը՝ սկզբում X, հետո Y, հետո Z։ f32 արդյունքները համեմատել թույլատրելի շեղմամբ։
 mod test {
     use crate::matrix4x4::Matrix4x4;
 

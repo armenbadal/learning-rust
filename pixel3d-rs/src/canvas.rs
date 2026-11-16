@@ -65,6 +65,8 @@ impl PortablePixmap for Canvas {
             writeln!(writer, "")?;
         }
 
+        // TODO 9.4: Վերջում բացահայտ կանչել writer.flush()?՝ բուֆերի վերջին
+        // գրառման սխալը նույնպես վերադարձնելու համար։
         Ok(())
     }
 }
